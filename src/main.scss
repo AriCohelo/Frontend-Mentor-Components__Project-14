@@ -1,0 +1,94 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'resets.scss';
+
+body {
+	background-color: $Clr-accent;
+	position: relative;
+	@include flexer();
+	min-height: 100vh;
+	font-family: $Ff-primary;
+	font-size: 1.125rem;
+}
+.background-pattern-top {
+	position: absolute;
+	top: -570px;
+	left: -350px;
+}
+.background-pattern-bottom {
+	position: absolute;
+	top: 350px;
+	left: 570px;
+}
+.card {
+	width: 21.875rem;
+	height: 23.375rem;
+	background-color: #fff;
+	border-radius: 15px;
+	position: relative;
+	@include flexer(column, center, center);
+	background-image: url('./images/bg-pattern-card.svg');
+	background-repeat: no-repeat;
+
+	&__user {
+		border-radius: 50%;
+		border: 5px solid #fff;
+		margin-top: 60px;
+	}
+	&__name {
+		margin-top: 1.5rem;
+		text-transform: capitalize;
+		font-weight: $Fw-regular;
+		font-size: 1.125rem;
+
+		&-highlight {
+			font-weight: $Fw-bold;
+		}
+	}
+	&__city {
+		text-transform: capitalize;
+		font-weight: $Fw-regular;
+		font-size: 0.875rem;
+	}
+	&__stats-flex {
+		@include flexer();
+		gap: 4rem;
+		margin-top: 3rem;
+		border-top: 1px solid rgba(128, 128, 128, 0.413);
+		width: 100%;
+		padding: 1.5rem;
+	}
+	&__stats {
+		&__stats-followers,
+		&__stats-likes,
+		&__stats-photos {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&-value {
+			font-size: 1.125rem;
+			font-weight: $Fw-extraBold;
+		}
+		&-item {
+			font-size: 0.625rem;
+			font-weight: $Fw-medium;
+			letter-spacing: 0.09375rem;
+		}
+	}
+}
+@media (max-width: 600px) {
+	.card {
+		width: 20.375rem;
+	}
+	.background-pattern-top {
+		top: -200px;
+		left: -300px;
+	}
+	.background-pattern-bottom {
+		top: 400px;
+		left: 300px;
+	}
+}
